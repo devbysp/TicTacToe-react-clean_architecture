@@ -1,0 +1,12 @@
+.cell {
+  font-size: 1.8rem;
+  border: 1px solid darkgray;
+  width: auto;
+}
+
+.mark {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  user-select: none;
+}
