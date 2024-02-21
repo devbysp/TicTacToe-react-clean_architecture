@@ -1,0 +1,24 @@
+.status-bar.classic {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+
+  background-color: lightblue;
+  border: 1px solid darkgray;
+}
+
+.status-bar-text.classic {
+  font-size: 1.5rem;
+  width: 300px;
+  margin: 20px auto;
+  text-align: left;
+  text-shadow: 1px 1px 3px #5f5f5f;
+}
+
+.status-bar.classic button {
+  padding: 0.5rem;
+  background: none;
+  border: 1px solid darkgray;
+}
