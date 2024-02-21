@@ -39,8 +39,45 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## What is the project abount
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The project implemets the well known **TicTakToe** game. The special thing about the project that it uses plugin architecture. It is a (miniproject experiment) to implement using **plugin architecture**.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The **Tic-Tac-Toe** game has a 3 x 3 board.
+
+![doc/board.svg](doc/board.svg)
+
+### Rules of the game
+
+- The Tic-Tac-Toe game is played by two users.
+- In the game, players mark one after the other. Only one at a time.
+- Each user puts its sign into an empty cell. The users are not allowed to mark a cell that is already contains a mark.
+- The first user usually uses the `X` sign. The second the `O` sign.
+- The user who manages to have three of its signs to be next to eachother on a horizontal, vertical or diagonal line wins the game.
+- If all the cells are occupied and there is no winner then its a draw.
+
+## Architecture
+
+First thing to do to model the **state of the game**. We can observe that the cells can be enumerated and the coordinates can easely be calculated by their index (if it is needed at all).
+
+![doc/board-with-indexed-cells.svg](doc/board-with-indexed-cells.svg)
+
+We might also want to keep track of the current step. We know that the useres follow each other after each step therefore we can calculate the current user from the number of steps.
+
+### The Model
+
+![doc/model.svg](doc/model.svg)
+
+### The Algorithm
+
+Because it is a tiny project the algorithm can also be wirtten in pseudo code.
+
+![doc/algorithm.svg](doc/algorithm.svg)
+
+We can see that the algorithm could be formulated in a way that it takes in the current **state of the game**, an index and generates the next state of the game. So if a user puts a mark on the index passed in into the algorithm then the board will look like the one returned by the algorithm.
+
+This reminds me of a reducer form Redux library. So I decided to use the **redux library**, but to conform to a **plugin architecture** the redux library has to be isolated which means that the rest of the code does not depend on the library. That will be more clear from the **UML like dependency diagram** in the following chapter.
+
+### Component Dependency Diagram
+
+![doc/uml.svg](doc/uml.svg)

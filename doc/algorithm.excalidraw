@@ -1,0 +1,48 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "type": "text",
+      "version": 496,
+      "versionNonce": 1572623951,
+      "isDeleted": false,
+      "id": "eEmWiCImaF6PS4xVk1pUg",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 910.9090576171875,
+      "y": 604.54541015625,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 597.65625,
+      "height": 456,
+      "seed": 1482049515,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "boundElements": [],
+      "updated": 1708482008931,
+      "link": null,
+      "locked": false,
+      "fontSize": 20,
+      "fontFamily": 3,
+      "text": "function next (state, index) {\n    if( winner(state) != '' || darw(state) ) {\n        return state\n    }\n\n    if( !empty(state, index) {\n        return state\n    }\n\n    return {\n        board: state.board.map( (value, pos) => {\n            if( pos === index ) {\n                return (state.step % 2) ? 'O' : 'X'\n            }\n            return value\n        }\n        step: state.step + 1\n    }\n}",
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "function next (state, index) {\n    if( winner(state) != '' || darw(state) ) {\n        return state\n    }\n\n    if( !empty(state, index) {\n        return state\n    }\n\n    return {\n        board: state.board.map( (value, pos) => {\n            if( pos === index ) {\n                return (state.step % 2) ? 'O' : 'X'\n            }\n            return value\n        }\n        step: state.step + 1\n    }\n}",
+      "lineHeight": 1.2,
+      "baseline": 451
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
