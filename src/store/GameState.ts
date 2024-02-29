@@ -1,20 +1,19 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { GameStateModel } from "../model/GameStateModel";
 import { next, initialState } from "../usecase/GameFlow";
+export { initialState } from "../usecase/GameFlow";
 
-const GameState = createSlice({
-  name: 'game',
-  initialState,
-  reducers: { 
-    next: (state, action: PayloadAction<number>) => { 
-      const { board, step } = next(state, action.payload) 
-      state.board = board
-      state.step = step
-    }, 
-    reset: (state) => {
-      state.board = initialState.board
-      state.step = initialState.step
-    }
+type Action = { type: string, payload?: any }
+type GameStateReducer = (state: GameStateModel, action: Action) => GameStateModel
+
+const reduceGameState: GameStateReducer = (state, action) => {
+  switch (action.type) {
+    case 'next': 
+      return next(state, action.payload)
+      
+    case 'reset': 
+      return initialState
   }
-})
+  return state
+}
 
-export default GameState
+export default reduceGameState
