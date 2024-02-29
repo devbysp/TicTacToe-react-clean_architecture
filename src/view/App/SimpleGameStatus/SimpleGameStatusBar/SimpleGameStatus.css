@@ -1,0 +1,17 @@
+.status-bar.simple {
+  background-color: slategray;
+}
+
+.status-bar.simple button {
+  background: gray;
+}
+
+.winner.simple {
+  font-weight: 600;
+  color: darkgreen;
+}
+
+.adraw.simple {
+  font-weight: 600;
+  color: maroon;
+}

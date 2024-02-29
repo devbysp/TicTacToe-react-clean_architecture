@@ -78,6 +78,8 @@ We can see that the algorithm could be formulated in a way that it takes in the 
 
 This reminds me of a reducer form Redux library. So I decided to use the **redux library**, but to conform to a **plugin architecture** the redux library has to be isolated which means that the rest of the code does not depend on the library. That will be more clear from the **UML like dependency diagram** in the following chapter.
 
+The App component creates two instances of Game component to **showcase the reuse of Game component** with two differend status bars. This is an example of how to reuse a component where a part the component (this time the status bar) can be changed dynamically depending on business logic or the place of usage.
+
 ### Component Dependency Diagram
 
 ![doc/uml.svg](doc/uml.svg)
