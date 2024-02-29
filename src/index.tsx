@@ -1,11 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
 
 import reportWebVitals from './reportWebVitals';
 
 import { GameStateProvider } from './store/GameStateProvider';
-import { store } from './store/store';
 import App from './view/App/App';
 import './index.css';
 
@@ -16,11 +14,9 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <GameStateProvider>
-          <App />
-      </GameStateProvider>
-    </Provider>
+    <GameStateProvider>
+        <App />
+    </GameStateProvider>
   </React.StrictMode>
 );
 

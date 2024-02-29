@@ -1,33 +1,20 @@
-import { ReactNode } from "react";
-
-import { RootState } from "./store";
-import { useAppDispatch, useAppSelector } from "./hooks";
+import { ReactNode, useReducer } from "react";
 
 import { GameStateContext, GameStateStore  } from "../usecase/GameStateContext";
-import GameState from "./GameState";
-
+import reduceGameState, { initialState } from "./GameState";
 
 interface GameStateProviderProps {
   children: ReactNode
 }
 
 export const GameStateProvider = ({ children }:  GameStateProviderProps) => {
-  const dispatch = useAppDispatch();
-
-  const boardSelector = (state: RootState) => state.game.board
-  const stepSelector = (state: RootState) => state.game.step
-
-  const { next, reset } = GameState.actions
-
+  const [state, dispatch] = useReducer(reduceGameState, initialState)
   const store: GameStateStore = {
-      state: {
-        board: useAppSelector(boardSelector),
-        step: useAppSelector(stepSelector)
-      },
+      state,
       actions: {
-        next: (index) => { dispatch(next(index)) },
-        reset: () => { dispatch(reset()) }
-      }
+        next: (index) => { dispatch({ type: 'next', payload: index }) },
+        reset: () => { dispatch({ type: 'reset' }) }
+      } 
     }
 
   return (
