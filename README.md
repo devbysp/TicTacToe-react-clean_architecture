@@ -76,7 +76,7 @@ Because it is a tiny project the algorithm can also be wirtten in pseudo code.
 
 We can see that the algorithm could be formulated in a way that it takes in the current **state of the game**, an index and generates the next state of the game. So if a user puts a mark on the index passed in into the algorithm then the board will look like the one returned by the algorithm.
 
-This reminds me of a reducer form Redux library. So I decided to use the **redux library**, but to conform to a **plugin architecture** the redux library has to be isolated which means that the rest of the code does not depend on the library. That will be more clear from the **UML like dependency diagram** in the following chapter.
+The **redux library** was replace with the **useReducer** bult-in hook. Because of the **plugin architecture** the removal of redux library did not affect any component outside the store module. Please take a look to the **UML like dependency diagram** in the following chapter.
 
 ### Component Dependency Diagram
 
